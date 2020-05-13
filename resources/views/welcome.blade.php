@@ -81,11 +81,6 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    @php
-                    $tenancy = app(Hyn\Tenancy\Environment::class);
-                    $host = $tenancy->hostname();
-                    $host->fqdn ?? ''
-                    @endphp
                     Blog
                 </div>
 
