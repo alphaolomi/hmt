@@ -36,32 +36,31 @@ class PermissionsSeeder extends Seeder
 
         $user1 = factory(User::class)->create([
             'name' => 'writer 1',
-            'email' => 'w1@example.com',
+            'email' => 'w1@mumbo24.tech',
         ]);
-        factory(App\Tenant\Models\Post::class, 3)->create(['user_id' => $user2->id]);
+        factory(App\Tenant\Models\Post::class, 3)->create(['user_id' => $user1->id]);
 
         $user2 = factory(User::class)->create([
             'name' => 'writer 2',
-            'email' => 'w2@example.com',
+            'email' => 'w2@mumbo24.tech',
         ]);
         factory(App\Tenant\Models\Post::class, 3)->create(['user_id' => $user2->id]);
 
 
+        $user1->assignRole($writerRole);
+        $user2->assignRole($writerRole);
 
-
-        $user->assignRole($writerRole);
-
-        $user = Factory(User::class)->create([
+        $admin = Factory(User::class)->create([
             'name' => 'Admin',
-            'email' => 'admin@example.com',
+            'email' => 'admin@mumbo24.tech',
         ]);
-        $user->assignRole($adminRole);
+        $admin->assignRole($adminRole);
 
-        $user = Factory(User::class)->create([
-            'name' => 'Super-Admin',
-            'email' => 'superadmin@example.com',
+        $superAdmin = Factory(User::class)->create([
+            'name' => 'Super Admin',
+            'email' => 'superadmin@mumbo24.tech',
         ]);
 
-        $user->assignRole($adminRole);
+        $superAdmin->assignRole($adminRole);
     }
 }
