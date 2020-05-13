@@ -84,8 +84,9 @@
                     @php
                     $tenancy = app(Hyn\Tenancy\Environment::class);
                     $host = $tenancy->hostname();
-                    $host->fqdn ?? 'Laravel Tenancy Blog'
+                    $host->fqdn ?? ''
                     @endphp
+                    Blog
                 </div>
 
                 <div class="links">

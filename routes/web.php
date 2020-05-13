@@ -10,11 +10,3 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-
-// Route::domain('{tenant}.mumbo24.tech')->group(function () {
-//     Route::get('users', function ($tenant) {
-//         return App\Tenant\Models\User::all();
-//     });
-// });
