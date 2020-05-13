@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +20,16 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+
+Route::domain('{tenant}.mumbo24.tech')->group(function () {
+    Route::get('users', function ($tenant) {
+        return App\Customer\Models\User::all();
+    });
+});
+
+
+Route::get('users', function () {
+    return App\Customer\Models\User::all();
+});
