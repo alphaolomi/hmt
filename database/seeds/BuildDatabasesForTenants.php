@@ -1,6 +1,6 @@
 <?php
 
-
+use Illuminate\Support\Str;
 use Hyn\Tenancy\Contracts\Repositories\HostnameRepository;
 use Hyn\Tenancy\Contracts\Repositories\WebsiteRepository;
 use Hyn\Tenancy\Models\Hostname;
@@ -35,7 +35,8 @@ class BuildDatabasesForTenants extends Seeder
             // app(HostnameRepository::class)->attach($hostname, $website);
 
             $website = new Website;
-            $website->uuid = $customer['database'];
+            $website->uuid = Str::random(10);
+            // $customer['database'];
             app(WebsiteRepository::class)->create($website);
 
 
