@@ -105,12 +105,12 @@ return [
         /**
          * Whether the integration with nginx is currently active.
          */
-        'enabled' => false,
+        'enabled' => true,
 
         /**
          * The php sock to be used.
          */
-        'php-sock' => 'unix:/var/run/php/php7.3-fpm.sock',
+        'php-sock' => 'unix:/var/run/php/php7.2-fpm.sock',
 
         /**
          * Define the ports of your nginx service.
