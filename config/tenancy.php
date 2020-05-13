@@ -228,9 +228,9 @@ return [
          *
          * @warn specify a valid fully qualified class name.
          */
-        'tenant-seed-class' => false,
+        // 'tenant-seed-class' => false,
 //      eg an admin seeder under `app/Seeders/AdminSeeder.php`:
-//        'tenant-seed-class' => App\Seeders\AdminSeeder::class,
+       'tenant-seed-class' => 'App\Seeders\TenantDatabaseSeeder::class',
 
         /**
          * Automatically generate a tenant database based on the random id of the
@@ -296,10 +296,10 @@ return [
          * @info Useful for overriding the connection of third party packages.
          */
         'force-tenant-connection-of-models' => [
-//            App\User::class
+           App\Tenant\Models\User::class
         ],
         'force-system-connection-of-models' => [
-//            App\User::class
+           App\System\Models\User::class
         ],
     ],
 

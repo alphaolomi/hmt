@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Customer\Models;
+namespace App\Tenant\Models;
 
 use Hyn\Tenancy\Traits\UsesTenantConnection;
-
 use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
@@ -12,6 +11,6 @@ class Post extends Model
 
     public function user()
     {
-        return $this->belongsTo(\App\Customer\Models\User::class);
+        return $this->belongsTo(\App\Tenant\Models\User::class);
     }
 }
