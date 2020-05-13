@@ -26,15 +26,24 @@ class BuildDatabasesForTenants extends Seeder
 
         foreach ($tenants as $customer) {
 
-            $website = new Website(['uuid' => $customer['database']]);
+            // $website = new Website(['uuid' => $customer['database']]);
+            // app(WebsiteRepository::class)->create($website);
+
+            // $hostname = new Hostname(['fqdn' => $customer['domain']]);
+            // app(HostnameRepository::class)->create($hostname);
+
+            // app(HostnameRepository::class)->attach($hostname, $website);
+
+            $website = new Website;
+            $website->uuid = $customer['database'];
             app(WebsiteRepository::class)->create($website);
 
-            $hostname = new Hostname(['fqdn' => $customer['domain']]);
-            app(HostnameRepository::class)->create($hostname);
+
+            $hostname = new Hostname;
+            $hostname->fqdn = $customer['domain'];
+            $hostname = app(HostnameRepository::class)->create($hostname);
 
             app(HostnameRepository::class)->attach($hostname, $website);
-
-
 
         }
     }
