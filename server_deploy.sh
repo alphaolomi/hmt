@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "Deploying application ..."
+echo "Deploying application ...."
 
 # Enter maintanance mode
 (php artisan down --message 'The app is being (quickly!) updated. Please try again in a minute.') || true
