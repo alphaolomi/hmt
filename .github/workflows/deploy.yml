@@ -5,7 +5,7 @@ on:
     branches: [ deploy ]
 
 jobs:
-  deploy:   
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Deploy to production
@@ -14,4 +14,4 @@ jobs:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
-        script: "cd /var/www/html/hmt &&  echo echo ${{ secrets.PK }}  || sudo ./server_deploy.sh"
+        script: "cd /var/www/hmt &&  echo echo ${{ secrets.PK }}  || sudo ./server_deploy.sh"
