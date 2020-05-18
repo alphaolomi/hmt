@@ -3,23 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'PagesController@landing');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
-
 Route::domain('{tenant}.mumbo24.tech')->group(function () {
-
-    Route::get('/', function () {
-        return view('welcome');
-    });
-
+    Route::view('/', 'welcome');
     Auth::routes();
-
     Route::get('/home', 'HomeController@index')->name('home');
 
 });
